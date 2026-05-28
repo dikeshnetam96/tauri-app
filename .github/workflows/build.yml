@@ -24,9 +24,13 @@ jobs:
         run: npm install
 
       - name: Build Windows app
-        uses: tauri-apps/tauri-action@v0
+        uses: tauri-apps/tauri-action@v0.5.15
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          projectPath: "."
+          tauriScript: npm run tauri
+          args: --verbose
 
       - name: Upload Windows artifacts
         uses: actions/upload-artifact@v4
@@ -53,9 +57,13 @@ jobs:
         run: npm install
 
       - name: Build macOS app
-        uses: tauri-apps/tauri-action@v0
+        uses: tauri-apps/tauri-action@v0.5.15
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          projectPath: "."
+          tauriScript: npm run tauri
+          args: --verbose
 
       - name: Upload macOS artifacts
         uses: actions/upload-artifact@v4
@@ -89,9 +97,13 @@ jobs:
         run: npm install
 
       - name: Build Linux app
-        uses: tauri-apps/tauri-action@v0
+        uses: tauri-apps/tauri-action@v0.5.15
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          projectPath: "."
+          tauriScript: npm run tauri
+          args: --verbose
 
       - name: Upload Linux artifacts
         uses: actions/upload-artifact@v4
